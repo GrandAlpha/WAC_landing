@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+ <section id="intro">
+
+    <div class="back-intro">
+      <div class="back-intro-text">
+        <h1>Извините, ведутся технические работы</h1>
+          <a href="{% url 'home-page' %}"><h2>Вернуться на главную</h2></a>
+
+      </div>
+
+      <div class="back-intro-1" data-aos="fade-up" data-aos-delay="400">
+        <img src="{% static 'img/back_intro.svg' %}" alt="">
+      </div>
+
+<!--      <div class="back-intro-W" data-aos="fade-up" data-aos-delay="200">-->
+<!--        <img src="{% static 'img/W.png' %}" alt="">-->
+<!--      </div>-->
+
+    </div>
+
+
+  </section>
+{% endblock %}

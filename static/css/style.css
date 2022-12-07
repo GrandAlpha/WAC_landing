@@ -185,6 +185,14 @@ h1, h2, h3, h4, h5, h6 {
 /*  }*/
 /*}*/
 
+#intro a{
+  color: white;
+}
+
+#intro a:hover{
+  color: #4dffd4;
+}
+
 
 #intro .back-intro {
   left: 0;

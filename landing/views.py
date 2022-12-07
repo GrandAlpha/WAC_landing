@@ -1,11 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from django.views.generic import RedirectView
-from django.http import HttpRequest
-from django.contrib.auth import logout
-from django.shortcuts import redirect
-from django.contrib.auth.models import User
 from .forms import Survey
+
+
+def account(request):
+    context = {}
+    return render(request, 'landing/account.html', context)
 
 
 def home(request):

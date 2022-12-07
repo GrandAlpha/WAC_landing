@@ -156,8 +156,26 @@
 
 
 
+            <h4>*Заполняя форму, вы даете согласие на <a data-toggle="modal" href="#ModalAgree" data-target="#ModalAgree">обработку персональных данных</a></h4>
 
-            <h4>*Заполняя форму, вы даете согласие на <a>обработку персональных данных</a></h4>
+
+            <div class="modal fade" id="ModalAgree" tabindex="-1" aria-labelledby="exampleModalCenteredScrollableTitle" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header" style="color:black; padding-bottom: 0;">
+        <h2 class="modal-title fs-5" style="padding-left: 25px;" id="exampleModalCenteredScrollableTitle">Политика конфиденциальности</h2>
+      </div>
+      <div class="modal-body" style="color:black;">
+        <p>Something</p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <p>Just like that.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
               <button type="submit" name="send" class="get-started-btn">Нажать на кнопку</button>
               {% if massage %}
                 <h5>{{ massage }}</h5>

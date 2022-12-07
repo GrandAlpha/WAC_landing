@@ -49,4 +49,3 @@ class Survey(forms.Form):
         widget=forms.NumberInput(attrs={'type': 'range', 'min': '1', 'max': '10', 'id': 'InputValue',
             'list': "tickmarks", 'onchange': "document.getElementById('rangeValue').innerHTML = this.value;"}),
         required=False)
-
