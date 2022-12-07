@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+ <section id="intro">
+
+    <div class="back-intro">
+      <div class="back-intro-text">
+        <h1>Мы
+объединяем
+технологии</h1>
+        <h2>Студия разработки решений
+с использованием технологий блокчейн, API и ML,
+а также собственного и искусственного интеллекта.</h2>
+      </div>
+
+      <div class="back-intro-1" data-aos="fade-up" data-aos-delay="400">
+        <img src="{% static 'img/back_intro.svg' %}" alt="">
+      </div>
+
+      <div class="back-intro-W" data-aos="fade-up" data-aos-delay="200">
+        <img src="{% static 'img/W.png' %}" alt="">
+      </div>
+
+    </div>
+
+
+  </section>
+<!-- #intro -->
+
+<main id="main">
+
+      <section id="services" class="section-bg">
+      <div class="container">
+
+        <div class="section-header">
+          <h3 class="section-title">Услуги</h3>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6 col-md-6">
+            <div class="box" data-aos="fade-right">
+              <img src="{% static 'img/lawyer.png' %}" alt="">
+              <h4>Юридические консультации</h4>
+              <ul>
+                <li><i class="ion-stop"></i> Подготовка у выпуску ЦФА</li>
+                <li><i class="ion-stop"></i> Инвестиции ЦФА</li>
+                <li><i class="ion-stop"></i> Формирование правил обращения ЦФА</li>
+                <li><i class="ion-stop"></i> Правовой консалтинг ИТ решений</li>
+              </ul>
+              <a href="#survey" class="get-started-btn">Подробнее</a>
+<!--              <a href="#" class="get-started-btn">Получить</a>-->
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="box" data-aos="fade-left">
+              <img src="{% static 'img/cubes.png' %}" alt="">
+              <h4>Разработка блокчейн решений </h4>
+              <ul>
+                <li><i class="ion-stop"></i> Финансовые инструменты</li>
+                <li><i class="ion-stop"></i> Маркетинговые инструменты</li>
+                <li><i class="ion-stop"></i> Технические инструменты</li>
+                <li><i class="ion-stop"></i> Инфраструктурные инструменты</li>
+              </ul>
+              <a href="#survey" class="get-started-btn">Подробнее</a>
+<!--              <a href="#" class="get-started-btn">Получить</a>-->
+            </div>
+          </div>
+
+        </div>
+      </div>
+<!--        <img src="{% static 'img/service_back.png' %}" alt="">-->
+    </section><!-- #pricing -->
+
+
+
+
+
+      <section id="survey" class="section-bg">
+      <div>
+        <h1>Пройдите опрос в рамках исследования</h1>
+        <h2>"Что действительно нужно решать?"</h2>
+        <div class="form-group">
+
+          <form method="post" name="main">
+              {% csrf_token %}
+
+<!--              <label for="InputCompany">Компания</label>-->
+<!--              <input type="text" class="form-control" id="InputCompany" placeholder="Введите название компании">-->
+              <div class="add_lbl">
+              {{ form.company.label_tag }}
+              </div>
+              {{ form.company }}
+
+              {% if show_reserve_industry %}
+              <div class="add_lbl">
+                  {{ form.reserve_industry.label_tag }}
+              </div>
+                  {{ form.reserve_industry }}
+                <button type="submit" name="hide_industry" class="get-started-btn-ltl">Вернуть список</button><br>
+              {% else %}
+              <div class="add_lbl">
+                  {{ form.industry.label_tag }}
+              </div>
+                  <div class="select">
+                      {{ form.industry }}
+                  </div>
+                <button type="submit" name="show_industry" class="get-started-btn-ltl" onclick="{}">Нет моей отрасли</button><br>
+              {% endif %}
+
+              {% if show_reserve_problem %}
+                  {{ form.reserve_problem.label_tag }}
+                  {{ form.reserve_problem }}
+              <button type="submit" name="hide_problem" class="get-started-btn-ltl">Вернуть список</button><br>
+              {% else %}
+                  {{ form.problem.label_tag }}
+                  <div class="select">
+                      {{ form.problem }}
+                  </div>
+                  <button type="submit" name="show_problem" class="get-started-btn-ltl" onclick="{}">Нет моей проблемы</button><br>
+              {% endif %}
+
+<!--              <label for="InputNumber">Телефон</label>-->
+<!--              <input type="number" class="form-control" id="InputNumber" placeholder="+7 (***) *** ** **">-->
+
+              {{ form.number.label_tag }}
+              {{ form.number }}
+              <div class="add_lbl">
+              <label for="InputValue"><h3><strong>Оцените масштаб вашей проблемы</strong><br>
+(где 1 - адресные санкции США, а 10 - журнальный формат отчетности)</h3></label><br>
+              </div>
+              <div class="ran">
+                  <div>
+<!--              <input type="range" id="InputValue" min="1" max="10" list="tickmarks" onchange="document.getElementById('rangeValue').innerHTML = this.value;">-->
+                    {{ form.scale }}
+<!--                      <datalist id="tickmarks">-->
+<!--                        <option value="1" label="1">-->
+<!--                        <option value="2" label="2">-->
+<!--                        <option value="3" label="3">-->
+<!--                        <option value="4" label="4">-->
+<!--                        <option value="5" label="5">-->
+<!--                        <option value="6" label="6">-->
+<!--                        <option value="7" label="7">-->
+<!--                        <option value="8" label="8">-->
+<!--                        <option value="9" label="9">-->
+<!--                        <option value="Heh" label="10">-->
+<!--                        </datalist>-->
+                      </div>
+                  <div>
+                      <span id="rangeValue">6</span>
+                  </div>
+                  </div>
+
+
+
+
+
+            <h4>*Заполняя форму, вы даете согласие на <a>обработку персональных данных</a></h4>
+              <button type="submit" name="send" class="get-started-btn">Нажать на кнопку</button>
+              {% if massage %}
+                <h5>{{ massage }}</h5>
+              {% else %}
+                  {% if errors %}
+                    <h5>{{ errors }}</h5>
+                  {% endif %}
+              {% endif %}
+
+          </form>
+
+        </div>
+      </div>
+
+<!--        <img src="{% static 'img/service_back.png' %}" alt="">-->
+    </section><!-- #pricing -->
+
+<!--    <form action="" method="post">-->
+<!--    {% csrf_token %}-->
+<!--        <div>-->
+<!--        {% for field in form %}-->
+<!--        <div class="form-group">-->
+<!--            {{field.label_tag}}-->
+<!--            <div>{{field}}</div>-->
+<!--            {% if field.errors%}-->
+<!--            {% for error in field.errors %}-->
+<!--            <div class="alert alert-danger">-->
+<!--                {{error}}-->
+<!--            </div>-->
+<!--            {% endfor %}-->
+<!--            {% endif %}-->
+<!--        </div>-->
+<!--        {% endfor %}-->
+<!--        </div>-->
+<!--    {% if error %}-->
+<!--    <div>{{error}}</div>-->
+<!--    {% endif %}-->
+<!--    <input type="submit" value="Submit">-->
+<!--</form>-->
+
+    <!--==========================
+      Partners
+    ============================-->
+    <section id="partners">
+      <div class="container">
+        <h1>Наши партнеры:</h1>
+
+        <div class="row">
+
+          <div class="col-md-6">
+            <a href="https://sagrada-legal.com" target="_blank">
+              <img src="{% static 'img/partners/SegradaLegal.png' %}" alt=""  data-aos="fade-up">
+            </a>
+          </div>
+
+          <div class="col-md-6">
+            <a href="https://www.masterchain.ru" target="_blank">
+              <img src="{% static 'img/partners/MasterChain.png' %}" alt=""  data-aos="fade-up">
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+{% endblock %}
