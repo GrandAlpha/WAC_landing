@@ -22,36 +22,39 @@ def home(request):
             context['show_reserve_industry'] = True
 
         if 'send' in request.POST:
+            data = {}
             if form.data['number'] != '':
-                print(form.data['number'])
+                data['number'] = form.data['number']
             else:
                 context['errors'] = 'Введите телефон'
             if 'problem' in form.data.dict():
                 if form.data['problem'] != '':
-                    print(form.data['problem'])
+                    data['problem'] = form.data['problem']
                 else:
                     context['errors'] = 'Выберите проблему'
             else:
                 if form.data['reserve_problem'] != '':
-                    print(form.data['reserve_problem'])
+                    data['reserve_problem'] = form.data['reserve_problem']
                 else:
                     context['errors'] = 'Введите проблему'
             if 'industry' in form.data.dict():
                 if form.data['industry'] != '':
-                    print(form.data['industry'])
+                    data['industry'] = form.data['industry']
                 else:
                     context['errors'] = 'Выберите сферу'
             else:
                 if form.data['reserve_industry'] != '':
-                    print(form.data['reserve_industry'])
+                    data['reserve_industry'] = form.data['reserve_industry']
                 else:
                     context['errors'] = 'Введите сферу'
             if form.data['company'] != '':
-                print(form.data['company'])
+                data['company'] = form.data['company']
             else:
                 context['errors'] = 'Введите команию'
+            data['scale'] = form.data['scale']
 
             if not context['errors']:
+                print(data)
                 form = Survey()
                 context['massage'] = 'Данные отправлены'
                 context.pop('anchor')
