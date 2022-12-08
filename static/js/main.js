@@ -120,7 +120,137 @@ jQuery(document).ready(function($) {
     }
   });
 
-  // custom code
+  /**
+   * Блок "Услуги"
+   * - Анимация переворачивания карточек
+   */
+  services();
+  survey();
+  modal();
 
+  $('[data-js=phoneMask]').mask('+ 7 (999) 999 99 99');
 });
 
+// Service block
+function services () {
+  var $services = $('[data-js=services]');
+  var $button = $services.find('[data-js=flipCard]');
+
+  $button.on('click', function () {
+    var $this = $(this);
+    var $card = $this.closest('[data-js=card]');
+
+    $card.toggleClass('servicesCard_flipped', $this.data('type') === 'more');
+  });
+}
+function survey () {
+  var className = 'difficultProblem';
+  var $difficultProblem = $('[data-js=difficultProblem]');
+  var $selectWithAnother = $('[data-js=selectWithAnother]');
+
+  $selectWithAnother.on('change', function (e) {
+    var $selectContainer = $(e.target).parent();
+    var name = $selectContainer.data('name');
+    console.log($(e.target).parent());
+
+    if (Number(e.target.value) === 99) {
+      var $input = $(
+        '<input />',
+        {
+          type: 'text',
+          name: 'another_' + name,
+          placeholder: (name === 'industry' ? 'Ваша отрасль' : 'Опишите проблему'),
+          class: 'form-control survey__anotherProblem',
+        },
+      );
+
+      $input.insertAfter($selectContainer);
+      $input.focus();
+    } else {
+      $('[name=another_' + name + ']').remove();
+    }
+  });
+
+  scaleOfProblem({
+    onChange (value) {
+      $difficultProblem.toggleClass(className + '_visible', Number(value) >= 9);
+    },
+  });
+};
+function scaleOfProblem ({ onChange }) {
+  var className = 'scaleOfProblem';
+  var numberOfPoints = 10;
+  var $block = $('[data-js=scaleOfProblem]');
+
+  for (var i = 1; i <= numberOfPoints; i++) {
+    var $label = $(
+      '<label />',
+      { class: className + '__label' },
+    );
+    var $input = $(
+      '<input />',
+      {
+        class: className + '__input',
+        type: 'radio',
+        value: i,
+        name: 'scale',
+      },
+    );
+    var $fakeInput = $(
+      '<div />',
+      { class: className + '__fakeInput' },
+    );
+    var $number = $(
+      '<span />',
+      {
+        class: className + '__number',
+        text: i,
+      },
+    );
+
+    $label.append($input);
+    $label.append($fakeInput);
+    $label.append($number);
+    $block.append($label);
+
+    $input.on('change', function (e) {
+      onChange(e.target.value);
+    });
+  }
+}
+function modal () {
+  var $modal = $('[data-js=modal]');
+  var $modalClone = $modal.clone();
+  var $button = $('[data-js=getService]');
+
+  $modal.remove();
+
+  $button.on('click', function () {
+    var hideClassName = 'modal_hide';
+    var $closeButton = $modalClone.find('[data-js=modalClose]');
+    var close = function () {
+      $modalClone.addClass(hideClassName);
+
+      setTimeout(
+        function () {
+          $modalClone.removeClass(hideClassName);
+          $modalClone.remove();
+          $('html').css({ overflow: '' });
+        },
+        400,
+      )
+    };
+
+    $('html').css({ overflow: 'hidden' });
+    $('body').append($modalClone);
+
+    $modalClone.find('[name=fio]').focus();
+
+    $(document).on('keyup', function(e) {
+      if (e.key === 'Escape') {
+        close();
+      }
+    });
+    $closeButton.on('click', close);
+  });
+}

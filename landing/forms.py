@@ -21,7 +21,8 @@ class Survey(forms.Form):
         ('', 'Выберите отрасль из списка'),
         (1, 'One'),
         (2, 'Two'),
-        (3, 'Three')
+        (3, 'Three'),
+        (99, 'Другое')
     ]
     industry = MyChoiceField(label='Отрасль', choices=CHOICES_industry, required=False, widget=forms.Select(attrs={
         'class': "custom-select custom-select"}))
@@ -33,7 +34,8 @@ class Survey(forms.Form):
         ('', 'Выберите проблему из списка'),
         (1, 'One'),
         (2, 'Two'),
-        (3, 'Three')
+        (3, 'Three'),
+        (99, 'Другое')
     ]
     problem = MyChoiceField(label='Проблема', choices=CHOICES_problem, required=False, widget=forms.Select(attrs={
         'class': "custom-select custom-select"}))
