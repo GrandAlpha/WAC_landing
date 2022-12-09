@@ -3,7 +3,7 @@ from .forms import Survey, Contacts
 import requests
 from WAC_landing.keys import token
 from WAC_landing.data import chat
-
+from django.shortcuts import redirect
 
 def createMessage(data, place_from):
     message = place_from + '\n'
@@ -22,6 +22,10 @@ def createMessage(data, place_from):
 def account(request):
     context = {}
     return render(request, 'landing/account.html', context)
+
+
+def landing(request):
+    return redirect('/home')
 
 
 def home(request):

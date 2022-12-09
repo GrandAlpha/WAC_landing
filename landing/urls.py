@@ -4,9 +4,7 @@ from django.views.generic import RedirectView
 from django.contrib import auth
 
 urlpatterns = [
-    path('', views.home, name='home-page'),
-]
-
-urlpatterns += [
     path('account/', views.account, name='account'),
+    path('home/', views.home, name='home-page'),
+    path('landing/', views.landing)
 ]
