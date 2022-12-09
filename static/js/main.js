@@ -225,8 +225,9 @@ function modal () {
 
   $modal.remove();
 
-  $button.on('click', function () {
+  $button.on('click', function (e) {
     var hideClassName = 'modal_hide';
+    var reason = $(e.target).data('reason');
     var $closeButton = $modalClone.find('[data-js=modalClose]');
     var close = function () {
       $modalClone.addClass(hideClassName);
@@ -240,8 +241,9 @@ function modal () {
         400,
       )
     };
-
+    console.log(reason);
     $('html').css({ overflow: 'hidden' });
+    $modalClone.find('button[type=submit]').attr('name', reason);
     $('body').append($modalClone);
 
     $modalClone.find('[name=fio]').focus();
