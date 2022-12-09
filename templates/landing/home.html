@@ -251,6 +251,9 @@
               <div class="survey__formSelect" data-js="selectWithAnother" data-name="industry">
                 {{ form.industry }}
               </div>
+              {% if show_reserve_industry %}
+              <input type="text" name="reserve_industry" placeholder="Ваша отрасль" class="form-control survey__anotherProblem">
+              {% endif %}
             </div>
 
             <div class="survey__formField">
@@ -258,6 +261,9 @@
               <div class="survey__formSelect" data-js="selectWithAnother" data-name="problem">
                 {{ form.problem }}
               </div>
+              {% if show_reserve_problem %}
+              <input type="text" name="reserve_problem" placeholder="Опишите проблему" class="form-control survey__anotherProblem">
+              {% endif %}
             </div>
 
 <!--              <label for="InputNumber">Телефон</label>-->
@@ -372,32 +378,35 @@
         <p class="modal__title">
           Оставьте контакты и мы перезвоним
         </p>
-        <form class="form modal__form">
+        <form class="form modal__form" method="post">
+          {% csrf_token %}
           <div class="form__field">
             <label class="form__label">
               ФИО
             </label>
-            <input
-                type="text"
-                name="fio"
-                placeholder="Введите ФИО"
-                class="form__input"
-            />
+<!--            <input-->
+<!--                type="text"-->
+<!--                name="fio"-->
+<!--                placeholder="Введите ФИО"-->
+<!--                class="form__input"-->
+<!--            />-->
+            {{ form2.fio }}
           </div>
           <div class="form__field">
             <label class="form__label">
               Телефон
             </label>
-            <input
-                type="text"
-                name="phone"
-                placeholder="+ 7 (999) 123 45 67"
-                class="form__input"
-                data-js="phoneMask"
-            />
+<!--            <input-->
+<!--                type="text"-->
+<!--                name="phone"-->
+<!--                placeholder="+ 7 (999) 123 45 67"-->
+<!--                class="form__input"-->
+<!--                data-js="phoneMask"-->
+<!--            />-->
+            {{ form2.phone }}
           </div>
           <footer class="modal__formFooter">
-            <button type="submit" class="modal__formButton">
+            <button name="contact" type="submit" class="modal__formButton">
               Получить
             </button>
           </footer>

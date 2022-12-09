@@ -365,6 +365,15 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
+#survey h5 {
+  /*margin-bottom: 15px;*/
+  font-size: 1rem;
+  padding-bottom: 20px;
+  text-align: center;
+  padding-top: 10px;
+
+}
+
 #survey .form-group{
   /*display: block;*/
   margin: 0 auto;

@@ -1,5 +1,20 @@
 from django.shortcuts import render
-from .forms import Survey
+from .forms import Survey, Contacts
+import requests
+
+
+def createMessage(data, place_from):
+    message = place_from + '\n'
+    message += 'Компания: ' + data['company'] + '\n'
+    message += 'Телефон: ' + data['number'] + '\n'
+    message += 'Сфера: ' + data['industry'] + '\n'
+    if 'reserve_industry' in data:
+        message += 'Сфера: ' + data['reserve_industry'] + '\n'
+    message += 'Проблема: ' + data['problem'] + '\n'
+    if 'reserve_problem' in data:
+        message += 'Проблема: ' + data['reserve_problem'] + '\n'
+    message += 'Критичность: ' + data['scale'] + '\n'
+    return message
 
 
 def account(request):
@@ -15,10 +30,6 @@ def home(request):
 
         # print(request.POST)
         form = Survey(request.POST)
-        if 'reserve_problem' in form.data.dict():
-            context['show_reserve_problem'] = True
-        if 'reserve_industry' in form.data.dict():
-            context['show_reserve_industry'] = True
 
         if 'send' in request.POST:
             data = {}
@@ -26,65 +37,63 @@ def home(request):
                 data['number'] = form.data['number']
             else:
                 context['errors'] = 'Введите телефон'
-            if 'problem' in form.data.dict():
-                if form.data['problem'] != '':
-                    data['problem'] = form.data['problem']
-                else:
-                    context['errors'] = 'Выберите проблему'
+
+            if form.data['problem'] != '':
+                if form.data['problem'] == '99':
+                    if form.data['reserve_problem'] != '':
+                        data['reserve_problem'] = form.data['reserve_problem']
+                    else:
+                        context['show_reserve_problem'] = True
+                        context['errors'] = 'Введите проблему'
+                data['problem'] = form.data['problem']
             else:
-                if form.data['reserve_problem'] != '':
-                    data['reserve_problem'] = form.data['reserve_problem']
-                else:
-                    context['errors'] = 'Введите проблему'
-            if 'industry' in form.data.dict():
-                if form.data['industry'] != '':
-                    data['industry'] = form.data['industry']
-                else:
-                    context['errors'] = 'Выберите сферу'
+                context['errors'] = 'Выберите проблему'
+
+            if form.data['industry'] != '':
+                if form.data['industry'] == '99':
+                    if form.data['reserve_industry'] != '':
+                        data['reserve_industry'] = form.data['reserve_industry']
+                    else:
+                        context['show_reserve_industry'] = True
+                        context['errors'] = 'Введите сферу'
+                data['industry'] = form.data['industry']
             else:
-                if form.data['reserve_industry'] != '':
-                    data['reserve_industry'] = form.data['reserve_industry']
-                else:
-                    context['errors'] = 'Введите сферу'
+                context['errors'] = 'Выберите сферу'
+
             if form.data['company'] != '':
                 data['company'] = form.data['company']
             else:
                 context['errors'] = 'Введите команию'
-            data['scale'] = form.data['scale']
+            if 'scale' in form.data.keys():
+                data['scale'] = form.data['scale']
+            else:
+                context['errors'] = 'Оцените масштаб вашей проблемы'
 
             if not context['errors']:
-                print(data)
+                token = '5834570408:AAF9BsuWOzst85mONjJM7SaNycn3FWTo1xY'
+                method = '/sendMessage'
+                chat = '?chat_id=-1001813603770&text='
+                message = createMessage(data, 'Результат опроса')
+
+                requests.get('https://api.telegram.org/bot' + token + method + chat + message)
+
                 form = Survey()
                 context['massage'] = 'Данные отправлены'
                 context.pop('anchor')
+                if 'show_reserve_problem' in context:
+                    context.pop('show_reserve_problem')
+                if 'show_reserve_industry' in context:
+                    context.pop('show_reserve_industry')
             else:
                 context['anchor'] = 'survey'
-        else:
-
-            if 'show_industry' in request.POST:
-                context['show_reserve_industry'] = True
-                context['anchor'] = 'survey'
-
-            elif 'hide_industry' in request.POST:
-                context['show_reserve_industry'] = False
-                context['anchor'] = 'survey'
-
-            elif 'show_problem' in request.POST:
-                context['show_reserve_problem'] = True
-                context['anchor'] = 'survey'
-
-            elif 'hide_problem' in request.POST:
-                context['show_reserve_problem'] = False
-                context['anchor'] = 'survey'
+        elif 'contact' in request.POST:
+            print(form.data)
     # num_visits = request.session.get('num_visits', 0)
     # request.session['num_visits'] = num_visits + 1
     # print(num_visits, request.session)
     else:
         form = Survey()
     context['form'] = form
+    context['form2'] = Contacts()
     # print(context)
-    if 'show_reserve_industry' not in context:
-        context['show_reserve_industry'] = False
-    if 'show_reserve_problem' not in context:
-        context['show_reserve_problem'] = False
     return render(request, 'landing/home.html', context)

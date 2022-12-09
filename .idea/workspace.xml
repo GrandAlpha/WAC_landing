@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99eb1abc-c324-4af2-aba1-bd9c323ff746" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/static/img/icons/back.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icons/letter.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icons/phone.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icons/telegram.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/lib/jquery.maskedinput/jquery.maskedinput.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landing/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/landing/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/landing/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/landing/home.html" afterDir="false" />
-    </list>
+    <list default="true" id="99eb1abc-c324-4af2-aba1-bd9c323ff746" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,12 +15,6 @@
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
   <component name="ProjectId" id="2IWoA9HtnKsAkMipObZAOBhGOmH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -41,8 +24,6 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
@@ -77,12 +58,22 @@
       <option name="presentableId" value="Default" />
       <updated>1670306553297</updated>
       <workItem from="1670306557000" duration="1067000" />
-      <workItem from="1670307653839" duration="60088000" />
-      <workItem from="1670519303635" duration="106000" />
+      <workItem from="1670307653839" duration="61284000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>8</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

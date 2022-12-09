@@ -158,7 +158,7 @@ function survey () {
         '<input />',
         {
           type: 'text',
-          name: 'another_' + name,
+          name: 'reserve_' + name,
           placeholder: (name === 'industry' ? 'Ваша отрасль' : 'Опишите проблему'),
           class: 'form-control survey__anotherProblem',
         },
