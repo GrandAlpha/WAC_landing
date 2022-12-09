@@ -1,4 +1,7 @@
 chat = '-1001813603770'
+contact_phone = '+ 7 (999) 123 45 66'
+contact_email = 'wac@wac-tech.ru'
+contact_telegram = 'wactech'
 
 CHOICES_industry = [
         ('', 'Выберите отрасль из списка'),

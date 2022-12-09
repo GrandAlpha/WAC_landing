@@ -285,21 +285,21 @@
                 <h5 class="difficultProblem__title">Срочно связаться с нами</h5>
                 <ul class="difficultProblem__list">
                   <li class="difficultProblem__listItem">
-                    <a href="mailto:wac@wac-tech.ru">
+                    <a href="mailto:{{ contact_email }}">
                       <img class="difficultProblem__socialIcon" src="{% static 'img/icons/letter.svg' %}" alt="">
-                      <span class="difficultProblem__listText">wac@wac-tach.ru</span>
+                      <span class="difficultProblem__listText">{{ contact_email }}</span>
                     </a>
                   </li>
                   <li class="difficultProblem__listItem">
-                    <a href="tel:+79991234567">
+                    <a href="tel:{{ contact_phone }}">
                       <img class="difficultProblem__socialIcon" src="{% static 'img/icons/phone.svg' %}" alt="">
-                      <span class="difficultProblem__listText">+7 (999) 123 45 67</span>
+                      <span class="difficultProblem__listText">{{ contact_phone }}</span>
                     </a>
                   </li>
                   <li class="difficultProblem__listItem">
-                    <a href="https://t.me/wactech" target="_blank">
+                    <a href="https://t.me/{{ contact_telegram }}" target="_blank">
                       <img class="difficultProblem__socialIcon" src="{% static 'img/icons/telegram.svg' %}" alt="">
-                      <span class="difficultProblem__listText">@wactech</span>
+                      <span class="difficultProblem__listText">@{{ contact_telegram }}</span>
                     </a>
                   </li>
                 </ul>

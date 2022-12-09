@@ -2,8 +2,9 @@ from django.shortcuts import render
 from .forms import Survey, Contacts
 import requests
 from WAC_landing.keys import token
-from WAC_landing.data import chat
+import WAC_landing.data as static_data
 from django.shortcuts import redirect
+
 
 def createMessage(data, place_from):
     message = place_from + '\n'
@@ -31,7 +32,11 @@ def landing(request):
 def home(request):
     context = {'anchor': None,
                'errors': None,
-               'massage': None}
+               'massage': None,
+               'contact_phone': static_data.contact_phone,
+               'contact_email': static_data.contact_email,
+               'contact_telegram': static_data.contact_telegram}
+
     if request.method == 'POST':
 
         # print(request.POST)
@@ -77,7 +82,7 @@ def home(request):
 
             if not context['errors']:
                 message = createMessage(data, 'Результат опроса')
-                requests.get('https://api.telegram.org/bot' + token + '/sendMessage?chat_id=' + chat + '&text=' + message)
+                requests.get('https://api.telegram.org/bot' + token + '/sendMessage?chat_id=' + static_data.chat + '&text=' + message)
 
                 form = Survey()
                 context['massage'] = 'Данные отправлены'
@@ -94,7 +99,7 @@ def home(request):
             else:
                 target = '[Техническая консультация]\n'
             message = 'Просьба связаться\n' + target + form.data['fio'] + '\n' + form.data['phone']
-            requests.get('https://api.telegram.org/bot' + token + '/sendMessage?chat_id=' + chat + '&text=' + message)
+            requests.get('https://api.telegram.org/bot' + token + '/sendMessage?chat_id=' + static_data.chat + '&text=' + message)
             form = Survey()
     # num_visits = request.session.get('num_visits', 0)
     # request.session['num_visits'] = num_visits + 1
