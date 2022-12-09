@@ -84,8 +84,8 @@ def home(request):
                     context.pop('show_reserve_industry')
             else:
                 context['anchor'] = 'survey'
-        elif 'contact' in request.POST or 'contact_2' in request.POST:
-            if 'contact' in request.POST:
+        elif 'consult' in request.POST or 'development' in request.POST:
+            if 'consult' in request.POST:
                 target = '[Юридическая консультация]\n'
             else:
                 target = '[Техническая консультация]\n'
