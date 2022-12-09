@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .forms import Survey, Contacts
 import requests
+from WAC_landing.keys import token
+from WAC_landing.data import chat
 
 
 def createMessage(data, place_from):
@@ -70,12 +72,8 @@ def home(request):
                 context['errors'] = 'Оцените масштаб вашей проблемы'
 
             if not context['errors']:
-                token = '5834570408:AAF9BsuWOzst85mONjJM7SaNycn3FWTo1xY'
-                method = '/sendMessage'
-                chat = '?chat_id=-1001813603770&text='
                 message = createMessage(data, 'Результат опроса')
-
-                requests.get('https://api.telegram.org/bot' + token + method + chat + message)
+                requests.get('https://api.telegram.org/bot' + token + '/sendMessage?chat_id=' + chat + '&text=' + message)
 
                 form = Survey()
                 context['massage'] = 'Данные отправлены'
@@ -86,8 +84,14 @@ def home(request):
                     context.pop('show_reserve_industry')
             else:
                 context['anchor'] = 'survey'
-        elif 'contact' in request.POST:
-            print(form.data)
+        elif 'contact' in request.POST or 'contact_2' in request.POST:
+            if 'contact' in request.POST:
+                target = '[Юридическая консультация]\n'
+            else:
+                target = '[Техническая консультация]\n'
+            message = 'Просьба связаться\n' + target + form.data['fio'] + '\n' + form.data['phone']
+            requests.get('https://api.telegram.org/bot' + token + '/sendMessage?chat_id=' + chat + '&text=' + message)
+            form = Survey()
     # num_visits = request.session.get('num_visits', 0)
     # request.session['num_visits'] = num_visits + 1
     # print(num_visits, request.session)
