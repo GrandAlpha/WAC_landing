@@ -1,0 +1,418 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+ <section id="intro">
+
+    <div class="back-intro">
+      <div class="back-intro-text">
+        <h1>Мы
+объединяем
+технологии</h1>
+        <h2>Студия разработки решений
+с использованием технологий блокчейн, API и ML,
+а также собственного и искусственного интеллекта.</h2>
+      </div>
+
+      <div class="back-intro-1" data-aos="fade-up" data-aos-delay="400">
+        <img src="{% static 'img/back_intro.svg' %}" alt="">
+      </div>
+
+    </div>
+
+
+  </section>
+<!-- #intro -->
+
+<main id="main">
+
+      <section id="services" class="section-bg" data-js="services">
+      <div class="container">
+
+        <div class="section-header">
+          <h3 class="section-title">Услуги</h3>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6 col-md-6">
+            <div class="box servicesCard" data-aos="fade-right" data-js="card">
+              <div class="servicesCard__front">
+                <img class="servicesCard__icon" src="{% static 'img/lawyer.png' %}" alt="">
+                <h4 class="servicesCard__title">Юридические консультации</h4>
+                <ul class="servicesCard__list">
+                  <li class="servicesCard__listItem">Подготовка у выпуску ЦФА</li>
+                  <li class="servicesCard__listItem">Инвестиции ЦФА</li>
+                  <li class="servicesCard__listItem">Формирование правил обращения ЦФА</li>
+                  <li class="servicesCard__listItem">Правовой консалтинг ИТ решений</li>
+                </ul>
+                <div class="servicesCard__footer">
+                  <button class="get-started-btn" data-js="flipCard" data-type="more">Подробнее</button>
+                  <button class="get-started-btn" data-js="getService">Получить</button>
+                </div>
+              </div>
+              <div class="servicesCard__back">
+                <button class="servicesCard__backButton" data-js="flipCard" data-type="less"></button>
+                <div class="cardBack">
+                  <div class="cardBack__content">
+                    <div class="cardBack__block">
+                      <p class="cardBack__title">
+                        Подготовка к выпуску ЦФА
+                      </p>
+                      <ul class="cardBack__list">
+                        <li class="cardBack__listItem">
+                          структурирование сделки
+                        </li>
+                        <li class="cardBack__listItem">
+                          составление решения о выпуске ЦФА
+                        </li>
+                        <li class="cardBack__listItem">
+                          консультирование в процессе размещения ЦФА
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="cardBack__block">
+                      <p class="cardBack__title">
+                        Инвестиции в ЦФА
+                      </p>
+                      <ul class="cardBack__list">
+                        <li class="cardBack__listItem">
+                          Помощь в поиске инвесторов
+                        </li>
+                        <li class="cardBack__listItem">
+                          Содействие в получении дивидендов по акциям зарубежных компаний
+                        </li>
+                        <li class="cardBack__listItem">
+                          Обмен ЦФА на ЦФА и другие цифровые права
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="cardBack__block">
+                      <p class="cardBack__title">
+                        Сопровождение выпуска УЦП
+                      </p>
+                      <ul class="cardBack__list">
+                        <li class="cardBack__listItem">
+                          Защита прав по УЦП (цифровой патент)
+                        </li>
+                        <li class="cardBack__listItem">
+                          Сопровождение выпуска и оборота гибридных токенов (ЦФА + УЦП и др.)
+                        </li>
+                        <li class="cardBack__listItem">
+                          Размещение УЦП на инвестиционной платформе
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="cardBack__block">
+                      <p class="cardBack__title">
+                        Правовой консалтинг разработки
+                      </p>
+                      <ul class="cardBack__list">
+                        <li class="cardBack__listItem">
+                          Содействие во включении организации в реестры Банка России
+                        </li>
+                        <li class="cardBack__listItem">
+                          Аудит разработанного инструмента на соответствие требованиям законодательств
+                        </li>
+                        <li class="cardBack__listItem">
+                          Разработка рекомендаций для формирования технического задания на разработку
+                        </li>
+                        <li class="cardBack__listItem">
+                          Сопровождение внешней разработки
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cardBack__footer">
+                    <button class="cardBack__button" data-js="getService">
+                      КОНСУЛЬТАЦИЯ ОТ 30 000 р/час
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="box servicesCard" data-aos="fade-left" data-js="card">
+              <div class="servicesCard__front">
+                <img class="servicesCard__icon" src="{% static 'img/cubes.png' %}" alt="">
+                <h4 class="servicesCard__title">Разработка блокчейн решений </h4>
+                <ul class="servicesCard__list">
+                  <li class="servicesCard__listItem">Финансовые инструменты</li>
+                  <li class="servicesCard__listItem">Маркетинговые инструменты</li>
+                  <li class="servicesCard__listItem">Технические инструменты</li>
+                  <li class="servicesCard__listItem">Инфраструктурные инструменты</li>
+                </ul>
+                <div class="servicesCard__footer">
+                  <button class="get-started-btn" data-js="flipCard" data-type="more">Подробнее</button>
+                  <button class="get-started-btn" data-js="getService">Получить</button>
+                </div>
+              </div>
+              <div class="servicesCard__back">
+                <button class="servicesCard__backButton" data-js="flipCard" data-type="less"></button>
+                <div class="cardBack">
+                  <div class="cardBack__content">
+                    <div class="cardBack__block">
+                      <p class="cardBack__title">
+                        Финансовые инструменты
+                      </p>
+                      <ul class="cardBack__list">
+                        <li class="cardBack__listItem">
+                          ЦФА -– цифровые права, обращение которых возможно только путем внесения записей в информационную систему Мастерчейн
+                        </li>
+                        <li class="cardBack__listItem">
+                          Цифровые банковские гарантии - сервис позволяет автоматизированно получить цифровой документ
+                        </li>
+                        <li class="cardBack__listItem">
+                          Цифровая ипотека - депозитарная система учета электронных закладных
+                        </li>
+                        <li class="cardBack__listItem">
+                          Токен валюты - реестр замороженных фиатных денежных средств для обеспечения цифровых прав
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="cardBack__block">
+                      <p class="cardBack__title">
+                        Маркетинговые инструменты
+                      </p>
+                      <ul class="cardBack__list">
+                        <li class="cardBack__listItem">
+                          Единый идентификационный токен (ID) - возможность проводить операции с цифровыми  продуктами в одном окне
+                        </li>
+                        <li class="cardBack__listItem">
+                          Токен программы лояльности - использование баллов, полученных в программах лояльности, через сайты и приложения третьих сторон
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="cardBack__block">
+                      <p class="cardBack__title">
+                        Технические инструменты
+                      </p>
+                      <ul class="cardBack__list">
+                        <li class="cardBack__listItem">
+                          Рейтинговая платформа - ренкинг компаний по методологии
+                        </li>
+                        <li class="cardBack__listItem">
+                          Репозиторий научных работ - защита прав ителлектуальной собственности
+                        </li>
+                        <li class="cardBack__listItem">
+                          Промышленный токен - динамический смарт показатель технических характеристик производства
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="cardBack__block">
+                      <p class="cardBack__title">
+                        Инфраструктурные инструменты
+                      </p>
+                      <ul class="cardBack__list">
+                        <li class="cardBack__listItem">
+                          Биржа Проектного Финансирования
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cardBack__footer">
+                    <button class="cardBack__button" data-js="getService">
+                      КОНСУЛЬТАЦИЯ ОТ 20 000 р/час
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+<!--        <img src="{% static 'img/service_back.png' %}" alt="">-->
+    </section><!-- #pricing -->
+
+
+
+
+
+      <section id="survey" class="section-bg" data-js="survey">
+        <h1>Пройдите опрос в рамках исследования</h1>
+        <h2>"Что действительно нужно решать?"</h2>
+        <div class="form-group">
+
+          <form method="post" name="main">
+            {% csrf_token %}
+
+<!--              <label for="InputCompany">Компания</label>-->
+<!--              <input type="text" class="form-control" id="InputCompany" placeholder="Введите название компании">-->
+            <div class="survey__formField">
+              {{ form.company.label_tag }}
+              {{ form.company }}
+            </div>
+
+            <div class="survey__formField">
+              {{ form.industry.label_tag }}
+              <div class="survey__formSelect" data-js="selectWithAnother" data-name="industry">
+                {{ form.industry }}
+              </div>
+              {% if show_reserve_industry %}
+              <input type="text" name="reserve_industry" placeholder="Ваша отрасль" class="form-control survey__anotherProblem">
+              {% endif %}
+            </div>
+
+            <div class="survey__formField">
+              {{ form.problem.label_tag }}
+              <div class="survey__formSelect" data-js="selectWithAnother" data-name="problem">
+                {{ form.problem }}
+              </div>
+              {% if show_reserve_problem %}
+              <input type="text" name="reserve_problem" placeholder="Опишите проблему" class="form-control survey__anotherProblem">
+              {% endif %}
+            </div>
+
+<!--              <label for="InputNumber">Телефон</label>-->
+<!--              <input type="number" class="form-control" id="InputNumber" placeholder="+7 (***) *** ** **">-->
+
+            <div class="survey__formField">
+              {{ form.number.label_tag }}
+              {{ form.number }}
+              <div class="add_lbl">
+                <label for="InputValue">
+                  <h3>
+                    <strong>Оцените масштаб вашей проблемы</strong><br />
+                    (где 1 - адресные санкции США, а 10 - журнальный формат отчетности)
+                  </h3>
+                </label>
+                <div class="scaleOfProblem" data-js="scaleOfProblem"></div>
+              </div>
+              <div class="difficultProblem" data-js="difficultProblem">
+                <h5 class="difficultProblem__title">Срочно связаться с нами</h5>
+                <ul class="difficultProblem__list">
+                  <li class="difficultProblem__listItem">
+                    <a href="mailto:wac@wac-tech.ru">
+                      <img class="difficultProblem__socialIcon" src="{% static 'img/icons/letter.svg' %}" alt="">
+                      <span class="difficultProblem__listText">wac@wac-tach.ru</span>
+                    </a>
+                  </li>
+                  <li class="difficultProblem__listItem">
+                    <a href="tel:+79991234567">
+                      <img class="difficultProblem__socialIcon" src="{% static 'img/icons/phone.svg' %}" alt="">
+                      <span class="difficultProblem__listText">+7 (999) 123 45 67</span>
+                    </a>
+                  </li>
+                  <li class="difficultProblem__listItem">
+                    <a href="https://t.me/wactech" target="_blank">
+                      <img class="difficultProblem__socialIcon" src="{% static 'img/icons/telegram.svg' %}" alt="">
+                      <span class="difficultProblem__listText">@wactech</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <p class="survey__privacyText">*Заполняя форму, вы даете согласие на <a>обработку персональных данных</a></p>
+              <button type="submit" name="send" class="get-started-btn">Нажать на кнопку</button>
+              {% if massage %}
+                <h5>{{ massage }}</h5>
+              {% else %}
+                  {% if errors %}
+                    <h5>{{ errors }}</h5>
+                  {% endif %}
+              {% endif %}
+          </form>
+
+        </div>
+
+<!--        <img src="{% static 'img/service_back.png' %}" alt="">-->
+    </section><!-- #pricing -->
+
+<!--    <form action="" method="post">-->
+<!--    {% csrf_token %}-->
+<!--        <div>-->
+<!--        {% for field in form %}-->
+<!--        <div class="form-group">-->
+<!--            {{field.label_tag}}-->
+<!--            <div>{{field}}</div>-->
+<!--            {% if field.errors%}-->
+<!--            {% for error in field.errors %}-->
+<!--            <div class="alert alert-danger">-->
+<!--                {{error}}-->
+<!--            </div>-->
+<!--            {% endfor %}-->
+<!--            {% endif %}-->
+<!--        </div>-->
+<!--        {% endfor %}-->
+<!--        </div>-->
+<!--    {% if error %}-->
+<!--    <div>{{error}}</div>-->
+<!--    {% endif %}-->
+<!--    <input type="submit" value="Submit">-->
+<!--</form>-->
+
+    <!--==========================
+      Partners
+    ============================-->
+    <section id="partners">
+      <div class="container">
+        <h1>Наши партнеры:</h1>
+
+        <div class="row">
+
+          <div class="col-md-6">
+            <a href="https://sagrada-legal.com" target="_blank">
+              <img src="{% static 'img/partners/SegradaLegal.png' %}" alt=""  data-aos="fade-up">
+            </a>
+          </div>
+
+          <div class="col-md-6">
+            <a href="https://www.masterchain.ru" target="_blank">
+              <img src="{% static 'img/partners/MasterChain.png' %}" alt=""  data-aos="fade-up">
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div class="modal" data-js="modal">
+    <div class="modal__overlay" data-js="modalClose"></div>
+    <div class="modal__container">
+      <div class="modal__content">
+        <button class="modal__close" data-js="modalClose"></button>
+        <p class="modal__title">
+          Оставьте контакты и мы перезвоним
+        </p>
+        <form class="form modal__form" method="post">
+          {% csrf_token %}
+          <div class="form__field">
+            <label class="form__label">
+              ФИО
+            </label>
+<!--            <input-->
+<!--                type="text"-->
+<!--                name="fio"-->
+<!--                placeholder="Введите ФИО"-->
+<!--                class="form__input"-->
+<!--            />-->
+            {{ form2.fio }}
+          </div>
+          <div class="form__field">
+            <label class="form__label">
+              Телефон
+            </label>
+<!--            <input-->
+<!--                type="text"-->
+<!--                name="phone"-->
+<!--                placeholder="+ 7 (999) 123 45 67"-->
+<!--                class="form__input"-->
+<!--                data-js="phoneMask"-->
+<!--            />-->
+            {{ form2.phone }}
+          </div>
+          <footer class="modal__formFooter">
+            <button name="contact" type="submit" class="modal__formButton">
+              Получить
+            </button>
+          </footer>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
