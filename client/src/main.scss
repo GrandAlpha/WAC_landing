@@ -146,6 +146,7 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 100vh;
   padding: 40px 88px;
   background-color: #4F5060;
+  overflow: hidden;
 
   &__content {
     max-width: 900px;
@@ -170,6 +171,11 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     min-width: 1200px;
     z-index: 1;
+  }
+  &__link {
+    display: inline-block;
+    margin-top: 28px;
+    color: #00FFC2;
   }
 
   @media (max-width: 1200px) {
@@ -815,7 +821,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
   @media (max-width: 900px) {
     .copyright {
-      width: 100%;
+      width: 100% !important;
     }
     .cont {
       padding: 0 0 0 20px !important;

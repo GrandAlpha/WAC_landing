@@ -1,5 +1,5 @@
 chat = '-1001813603770'
-contact_phone = '+ 7 (495) 363 34 93'
+contact_phone = '+7 (495) 363-34-93'
 contact_email = 'wac@wac-tech.ru'
 contact_telegram = 'wactech'
 
