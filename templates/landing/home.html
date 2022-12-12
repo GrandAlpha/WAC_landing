@@ -2,31 +2,23 @@
 {% block content %}
 {% load static %}
 
- <section id="intro">
-
-    <div class="back-intro">
-      <div class="back-intro-text">
-        <h1>Мы
-объединяем
-технологии</h1>
-        <h2>Студия разработки решений
-с использованием технологий блокчейн, API и ML,
-а также собственного и искусственного интеллекта.</h2>
-      </div>
-
-      <div class="back-intro-1" data-aos="fade-up" data-aos-delay="400">
-        <img src="{% static 'img/back_intro.svg' %}" alt="">
-      </div>
-
-    </div>
-
-
-  </section>
+ <section class="intro" id="intro">
+   <div class="intro__content">
+     <h1 class="intro__title">
+       Мы Объединяем Технологии
+     </h1>
+     <p class="intro__description">
+       Студия разработки решений с&nbsp;использованием технологий блокчейн,
+       API&nbsp;и&nbsp;ML, а&nbsp;также собственного и&nbsp;искусственного интеллекта.
+     </p>
+   </div>
+   <img src="{% static 'img/back_intro.svg' %}" alt="" class="intro__background" data-aos="fade-up" data-aos-delay="400">
+</section>
 <!-- #intro -->
 
 <main id="main">
 
-      <section id="services" class="section-bg" data-js="services">
+      <section id="services" class="section-bg services" data-js="services">
       <div class="container">
 
         <div class="section-header">
@@ -41,7 +33,7 @@
                 <img class="servicesCard__icon" src="{% static 'img/lawyer.png' %}" alt="">
                 <h4 class="servicesCard__title">Юридические консультации</h4>
                 <ul class="servicesCard__list">
-                  <li class="servicesCard__listItem">Подготовка у выпуску ЦФА</li>
+                  <li class="servicesCard__listItem">Подготовка к выпуску ЦФА</li>
                   <li class="servicesCard__listItem">Инвестиции ЦФА</li>
                   <li class="servicesCard__listItem">Формирование правил обращения ЦФА</li>
                   <li class="servicesCard__listItem">Правовой консалтинг ИТ решений</li>
@@ -124,9 +116,7 @@
                     </div>
                   </div>
                   <div class="cardBack__footer">
-                    <button class="cardBack__button" data-js="getService" data-reason="consult">
-                      КОНСУЛЬТАЦИЯ ОТ 30 000 р/час
-                    </button>
+                    <button class="get-started-btn" data-js="getService" data-reason="consult">Получить</button>
                   </div>
                 </div>
               </div>
@@ -213,9 +203,7 @@
                     </div>
                   </div>
                   <div class="cardBack__footer">
-                    <button class="cardBack__button" data-js="getService" data-reason="development">
-                      КОНСУЛЬТАЦИЯ ОТ 20 000 р/час
-                    </button>
+                    <button class="get-started-btn" data-js="getService" data-reason="development">Получить</button>
                   </div>
                 </div>
               </div>
@@ -231,7 +219,7 @@
 
 
 
-      <section id="survey" class="section-bg" data-js="survey">
+      <section id="survey" class="survey" class="section-bg" data-js="survey">
         <h1>Пройдите опрос в рамках исследования</h1>
         <h2>"Что действительно нужно решать?"</h2>
         <div class="form-group">
@@ -306,7 +294,7 @@
               </div>
             </div>
             <p class="survey__privacyText">*Заполняя форму, вы даете согласие на <a>обработку персональных данных</a></p>
-              <button type="submit" name="send" class="get-started-btn">Нажать на кнопку</button>
+              <button type="submit" name="send" class="get-started-btn">Отправить</button>
               {% if massage %}
                 <h5>{{ massage }}</h5>
               {% else %}
