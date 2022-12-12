@@ -5,6 +5,5 @@ from django.contrib import auth
 
 urlpatterns = [
     path('account/', views.account, name='account'),
-    path('home/', views.home, name='home-page'),
-    # path('landing/', views.landing)
+    path('', views.home, name='home-page')
 ]

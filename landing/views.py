@@ -21,7 +21,12 @@ def createMessage(data, place_from):
 
 
 def account(request):
-    context = {}
+    context = {'anchor': None,
+               'errors': None,
+               'massage': None,
+               'contact_phone': static_data.contact_phone,
+               'contact_email': static_data.contact_email,
+               'contact_telegram': static_data.contact_telegram}
     return render(request, 'landing/account.html', context)
 
 
