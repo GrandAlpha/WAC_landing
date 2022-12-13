@@ -73,20 +73,35 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-#header {
+.header {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
   background: #4F5060;
-  padding: 30px 0;
   height: 90px;
   position: fixed;
   left: 0;
   top: 0;
   right: 0;
+  padding: 0 88px;
   transition: all 0.5s;
   z-index: 997;
   filter: drop-shadow(0px 4px 4px #3e3e4b);
 
+  &__link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    line-height: 1;
+
+    &Text {
+      margin-left: 16px;
+    }
+  }
+
   @media (max-width: 768px) {
-    height: 60px;
+    padding: 0 16px;
   }
 }
 
@@ -130,10 +145,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header.header-fixed {
-  padding: 25px 0;
-  height: 70px;
   transition: all 0.5s;
-
 }
 
 /*--------------------------------------------------------------
@@ -144,7 +156,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   position: relative;
   min-height: 100vh;
-  padding: 40px 88px;
+  padding: 212px 88px 260px;
   background-color: #4F5060;
   overflow: hidden;
 
@@ -162,14 +174,13 @@ h1, h2, h3, h4, h5, h6 {
     margin: 16px 0 0;
     font-size: 32px;
     line-height: 44px;
-    color: #00FFC2;
+    color: #fff;
   }
   &__background {
     position: absolute;
     right: 0;
-    bottom: -70px;
-    width: 100%;
-    min-width: 1200px;
+    bottom: -148px;
+    width: 1500px;
     z-index: 1;
   }
   &__link {
@@ -178,9 +189,14 @@ h1, h2, h3, h4, h5, h6 {
     color: #00FFC2;
   }
 
+  @media (max-width: 1400px) {
+    &__background {
+      bottom: -220px;
+    }
+  }
   @media (max-width: 1200px) {
     &__content {
-      max-width: 620px;
+      max-width: 610px;
     }
     &__title {
       font-size: 80px;
@@ -191,12 +207,15 @@ h1, h2, h3, h4, h5, h6 {
       line-height: 36px;
     }
     &__background {
-      margin-top: -720px;
+      bottom: -180px;
     }
   }
   @media (max-width: 768px) {
     padding: 84px 16px 24px;
 
+    &__content {
+      max-width: 580px;
+    }
     &__title {
       max-width: 420px;
       font-size: 60px;
@@ -227,7 +246,7 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------*/
 #services {
   min-height: 100vh;
-  padding: 60px 0 50px 0;
+  padding-bottom: 50px;
   background-image: url('./assets/img/service_back.png');
   background-repeat: no-repeat;
   background-position: bottom;

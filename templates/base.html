@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>WAC</title>
+  <title>Мы Объединяем</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -41,18 +41,15 @@
 <body>
 
   {% block header %}
-  <header id="header">
-<!--    <div class="container">-->
-
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
-
-            <li><a href="{% url 'account' %}"><img src="{% static 'img/account.png' %}">Личный кабинет</a></li>
-
-        </ul>
-      </nav><!-- #nav-menu-container -->
-<!--    </div>-->
-  </header><!-- #header -->
+  <header id="header" class="header">
+    <a href="/" class="header__link">
+      <img src="{% static 'img/logo.svg' %}" />
+    </a>
+    <a href="{% url 'account' %}" class="header__link">
+      <img src="{% static 'img/account.svg' %}">
+      <span class="header__linkText">Личный кабинет</span>
+    </a>
+  </header>
   {% endblock %}
 
 
@@ -64,7 +61,7 @@
       <div class="row">
           <div class="copyright">
             <div class="footer-links">
-            <a href="{% url 'home-page' %}">Мы объединяем технологии</a>
+            <a href="{% url 'home-page' %}">Мы Объединяем Технологии</a>
               </div>
           </div>
         <div class="cont">
