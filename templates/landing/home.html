@@ -354,49 +354,5 @@
     </section>
 
   </main>
-  <div class="modal" data-js="modal">
-    <div class="modal__overlay" data-js="modalClose"></div>
-    <div class="modal__container">
-      <div class="modal__content">
-        <button class="modal__close" data-js="modalClose"></button>
-        <p class="modal__title">
-          Оставьте контакты и мы перезвоним
-        </p>
-        <form class="form modal__form" method="post">
-          {% csrf_token %}
-          <div class="form__field">
-            <label class="form__label">
-              ФИО
-            </label>
-<!--            <input-->
-<!--                type="text"-->
-<!--                name="fio"-->
-<!--                placeholder="Введите ФИО"-->
-<!--                class="form__input"-->
-<!--            />-->
-            {{ form2.fio }}
-          </div>
-          <div class="form__field">
-            <label class="form__label">
-              Телефон
-            </label>
-<!--            <input-->
-<!--                type="text"-->
-<!--                name="phone"-->
-<!--                placeholder="+ 7 (999) 123 45 67"-->
-<!--                class="form__input"-->
-<!--                data-js="phoneMask"-->
-<!--            />-->
-            {{ form2.phone }}
-          </div>
-          <footer class="modal__formFooter">
-            <button name="contact" type="submit" class="modal__formButton">
-              Получить
-            </button>
-          </footer>
-        </form>
-      </div>
-    </div>
-  </div>
 
 {% endblock %}

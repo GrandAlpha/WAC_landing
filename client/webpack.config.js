@@ -51,7 +51,7 @@ const createConfig = (
           ],
         },
         {
-          test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
+          test: /\.(png|jpe?g|gif|svg|webp|ico|json)$/i,
           type: (isProd ? 'asset' : 'asset/resource'),
           generator: {
             filename: 'images/[hash][ext][query]',

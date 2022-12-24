@@ -129,6 +129,7 @@ jQuery(document).ready(function($) {
   services();
   survey();
   modal();
+  loginForm();
 
   $('[data-js=phoneMask]').mask('+ 7 (999) 999 99 99');
 });
@@ -153,7 +154,6 @@ function survey () {
   $selectWithAnother.on('change', function (e) {
     var $selectContainer = $(e.target).parent();
     var name = $selectContainer.data('name');
-    console.log($(e.target).parent());
 
     if (Number(e.target.value) === 99) {
       var $input = $(
@@ -227,7 +227,7 @@ function modal () {
 
   $modal.remove();
 
-  $button.on('click', function (e) {
+  $(document).on('click', '[data-js=getService]',  function (e) {
     var hideClassName = 'modal_hide';
     var reason = $(e.target).data('reason');
     var $closeButton = $modalClone.find('[data-js=modalClose]');
@@ -243,9 +243,10 @@ function modal () {
         400,
       )
     };
-    console.log(reason);
+
     $('html').css({ overflow: 'hidden' });
     $modalClone.find('button[type=submit]').attr('name', reason);
+    $modalClone.css({ display: 'block' });
     $('body').append($modalClone);
 
     $modalClone.find('[name=fio]').focus();
@@ -256,5 +257,46 @@ function modal () {
       }
     });
     $closeButton.on('click', close);
+  });
+}
+
+function loginForm () {
+  let disabled = false;
+  const $form = $('[data-js=loginForm]');
+  const $button = $form.find('[data-js=loginFormButton]');
+
+  $form.on('submit', function (e) {
+    e.preventDefault();
+
+    if (disabled) return;
+
+    const $buttonText = $button.find('[data-js=loginFormButtonText]');
+    const $error = $(`
+      <div class="auth__error" data-js="loginFormError">
+        Не получается авторизоваться :(<br />
+        <button class="auth__errorButton" type="button" data-js="getService">Напишите нам</button>.
+      </div>
+    `);
+    const $lottie = $('<lottie-player src="/static/lottie/loading.json" class="auth__buttonLoading" background="transparent"  speed="1"  loop autoplay></lottie-player>');
+
+    $buttonText.css({ opacity: 0 });
+
+    $button.append($lottie);
+
+    disabled = true;
+
+    setTimeout(
+      () => {
+        $buttonText.css({ opacity: 1 });
+        $lottie.remove();
+
+        if ($form.find('[data-js=loginFormError]').length === 0) {
+          $form.append($error);
+        }
+
+        disabled = false;
+      },
+      2000,
+    );
   });
 }

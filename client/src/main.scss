@@ -156,7 +156,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   position: relative;
   min-height: 100vh;
-  padding: 212px 88px 260px;
+  padding: 192px 88px 260px;
   background-color: #4F5060;
   overflow: hidden;
 
@@ -1264,9 +1264,6 @@ body.mobile-nav-active #mobile-nav-toggle {
    }
  }
 
-.modal {
-  display: block !important;
-}
 .modal__overlay,
 .modal__container {
   position: absolute;
@@ -1406,4 +1403,97 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .container {
   max-width: 1200px !important;
+}
+
+.input {
+  background-color: #4F5060;
+  color: #888888;
+  border-color: #85FFE2;
+  border-radius: unset;
+  height: 52px;
+  padding: 0 24px;
+  margin: 0;
+  border: 1px solid #85FFE2;
+  color: #fff;
+  outline: none !important;
+}
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 52px;
+  padding: 0 24px;
+  margin: 0;
+  border: 0;
+  background-color: #85FFE2;
+  font-size: 18px;
+  font-weight: 700;
+  color: #4F5060;
+  line-height: 1;
+  text-transform: uppercase;
+  outline: none !important;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  height: 100%;
+  padding: 136px 0 48px;
+  background-color: #4F5060;
+
+  &__content {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 16px;
+  }
+  &__form {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  &__label {
+    padding-left: 4px;
+  }
+  &__input {
+    width: 100%;
+    height: 52px;
+    margin-top: 8px;
+  }
+  &__formFooter {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+  }
+  &__button {
+    position: relative;
+    width: 260px;
+
+    &Loading {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 80%;
+      transform: translateY(-50%);
+    }
+  }
+  &__error {
+    margin-top: 24px;
+    text-align: center;
+
+    &Button {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background-color: transparent;
+      color: #85FFE2;
+      outline: none !important;
+    }
+  }
 }

@@ -1,15 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
-<section class="intro" id="intro">
-  <div class="intro__content">
-    <h1 class="intro__title">
-      Извините, ведутся технические работы
-    </h1>
-    <p class="intro__description">
-      <a href="{% url 'home-page' %}" class="intro__link">Вернуться на главную</a>
-    </p>
+<main class="auth">
+  <div class="auth__content">
+    <form class="auth__form form" data-js="loginForm">
+      <div class="form__field">
+        <label for="login" class="auth__label form__label">Логин</label>
+        <input id="login" type="text" name="login" class="auth__input input" autofocus />
+      </div>
+      <div class="form__field">
+        <label for="password" class="auth__label form__label">Пароль</label>
+        <input id="password" type="password" type="password" name="password" class="auth__input input" />
+      </div>
+      <div class="auth__formFooter">
+        <button class="button auth__button" data-js="loginFormButton">
+          <span class="auth__buttonText" data-js="loginFormButtonText">Авторизоваться</span>
+        </button>
+      </div>
+    </form>
   </div>
-  <img src="{% static 'img/back_intro.svg' %}" alt="" class="intro__background" data-aos="fade-up" data-aos-delay="400">
-</section>
+</main>
 {% endblock %}
