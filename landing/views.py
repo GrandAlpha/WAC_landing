@@ -6,6 +6,9 @@ import WAC_landing.data as static_data
 from django.shortcuts import redirect
 
 
+TEST_MODE = False
+
+
 def createMessage(data, place_from):
     message = place_from + '\n'
     message += 'Компания: ' + data['company'] + '\n'
@@ -27,6 +30,16 @@ def account(request):
                'contact_phone': static_data.contact_phone,
                'contact_email': static_data.contact_email,
                'contact_telegram': static_data.contact_telegram}
+    if request.method == 'POST':
+        form = Contacts(request.POST)
+        target = '[Авторизация]\n'
+        message = 'Просьба связаться\n' + target + form.data['fio'] + '\n' + form.data['phone']
+        if TEST_MODE:
+            print(message)
+        else:
+            requests.get(
+                'https://api.telegram.org/bot' + token + '/sendMessage?chat_id=' + static_data.chat + '&text=' + message)
+    context['form2'] = Contacts()
     return render(request, 'landing/account.html', context)
 
 
@@ -87,7 +100,10 @@ def home(request):
 
             if not context['errors']:
                 message = createMessage(data, 'Результат опроса')
-                requests.get('https://api.telegram.org/bot' + token + '/sendMessage?chat_id=' + static_data.chat + '&text=' + message)
+                if TEST_MODE:
+                    print(message)
+                else:
+                    requests.get('https://api.telegram.org/bot' + token + '/sendMessage?chat_id=' + static_data.chat + '&text=' + message)
 
                 form = Survey()
                 context['massage'] = 'Данные отправлены'
@@ -104,7 +120,10 @@ def home(request):
             else:
                 target = '[Техническая консультация]\n'
             message = 'Просьба связаться\n' + target + form.data['fio'] + '\n' + form.data['phone']
-            requests.get('https://api.telegram.org/bot' + token + '/sendMessage?chat_id=' + static_data.chat + '&text=' + message)
+            if TEST_MODE:
+                print(message)
+            else:
+                requests.get('https://api.telegram.org/bot' + token + '/sendMessage?chat_id=' + static_data.chat + '&text=' + message)
             form = Survey()
     # num_visits = request.session.get('num_visits', 0)
     # request.session['num_visits'] = num_visits + 1
