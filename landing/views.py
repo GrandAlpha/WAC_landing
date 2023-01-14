@@ -8,7 +8,7 @@ import WAC_landing.data as static_data
 from django.shortcuts import redirect
 
 
-TEST_MODE = True
+TEST_MODE = False
 
 
 def createMessage(data, place_from):
