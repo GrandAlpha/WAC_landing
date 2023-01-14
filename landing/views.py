@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from .forms import Survey, Contacts
 import requests
+import asyncio
+from landing.bitrix import *
 from WAC_landing.keys import token
 import WAC_landing.data as static_data
 from django.shortcuts import redirect
 
 
-TEST_MODE = False
+TEST_MODE = True
 
 
 def createMessage(data, place_from):
@@ -32,13 +34,14 @@ def account(request):
                'contact_telegram': static_data.contact_telegram}
     if request.method == 'POST':
         form = Contacts(request.POST)
-        target = '[Авторизация]\n'
-        message = 'Просьба связаться\n' + target + form.data['fio'] + '\n' + form.data['phone']
+        target = '[Авторизация]'
+        message = 'Просьба связаться\n' + target + '\n' + form.data['fio'] + '\n' + form.data['phone']
         if TEST_MODE:
             print(message)
         else:
             requests.get(
                 'https://api.telegram.org/bot' + token + '/sendMessage?chat_id=' + static_data.chat + '&text=' + message)
+            callBitrixContacts(target, form.data['fio'], form.data['phone'])
     context['form2'] = Contacts()
     return render(request, 'landing/account.html', context)
 
@@ -105,6 +108,14 @@ def home(request):
                 else:
                     requests.get('https://api.telegram.org/bot' + token + '/sendMessage?chat_id=' + static_data.chat + '&text=' + message)
 
+                    idstr = data['industry']
+                    if 'reserve_industry' in data:
+                        idstr = data['reserve_industry']
+                    prblm = data['problem']
+                    if 'reserve_industry' in data:
+                        prblm = data['reserve_problem']
+                    callBitrixForm(data['company'], data['number'], idstr, prblm, data['scale'])
+
                 form = Survey()
                 context['massage'] = 'Данные отправлены'
                 context.pop('anchor')
@@ -116,14 +127,15 @@ def home(request):
                 context['anchor'] = 'survey'
         elif 'consult' in request.POST or 'development' in request.POST:
             if 'consult' in request.POST:
-                target = '[Юридическая консультация]\n'
+                target = '[Юридическая консультация]'
             else:
-                target = '[Техническая консультация]\n'
-            message = 'Просьба связаться\n' + target + form.data['fio'] + '\n' + form.data['phone']
+                target = '[Техническая консультация]'
+            message = 'Просьба связаться\n' + target + '\n' + form.data['fio'] + '\n' + form.data['phone']
             if TEST_MODE:
                 print(message)
             else:
                 requests.get('https://api.telegram.org/bot' + token + '/sendMessage?chat_id=' + static_data.chat + '&text=' + message)
+                callBitrixContacts(target, form.data['fio'], form.data['phone'])
             form = Survey()
     # num_visits = request.session.get('num_visits', 0)
     # request.session['num_visits'] = num_visits + 1
