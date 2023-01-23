@@ -31,7 +31,8 @@ def account(request):
                'massage': None,
                'contact_phone': static_data.contact_phone,
                'contact_email': static_data.contact_email,
-               'contact_telegram': static_data.contact_telegram}
+               'contact_telegram': static_data.contact_telegram,
+               'contact_whatsapp': static_data.contact_whatsapp}
     if request.method == 'POST':
         form = Contacts(request.POST)
         target = '[Авторизация]'
@@ -56,7 +57,8 @@ def home(request):
                'massage': None,
                'contact_phone': static_data.contact_phone,
                'contact_email': static_data.contact_email,
-               'contact_telegram': static_data.contact_telegram}
+               'contact_telegram': static_data.contact_telegram,
+               'contact_whatsapp': static_data.contact_whatsapp}
 
     if request.method == 'POST':
 
