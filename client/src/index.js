@@ -287,14 +287,15 @@ function loginForm () {
 
     setTimeout(
       () => {
-        $buttonText.css({ opacity: 1 });
-        $lottie.remove();
+        window.location.replace('https://theblockcapital.ru/lk');
+        // $buttonText.css({ opacity: 1 });
+        // $lottie.remove();
 
-        if ($form.find('[data-js=loginFormError]').length === 0) {
-          $form.append($error);
-        }
+        // if ($form.find('[data-js=loginFormError]').length === 0) {
+        //   $form.append($error);
+        // }
 
-        disabled = false;
+        // disabled = false;
       },
       2000,
     );
