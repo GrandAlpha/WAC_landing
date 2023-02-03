@@ -5,7 +5,7 @@
   "author": "MedvedevDev <medvedev.web.dev@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env webpack --mode development -w",
+    "serve": "cross-env webpack --mode development -w",
     "build": "cross-env webpack --mode production"
   },
   "devDependencies": {

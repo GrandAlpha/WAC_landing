@@ -130,6 +130,7 @@ jQuery(document).ready(function($) {
   survey();
   modal();
   loginForm();
+  yandexMetrika();
 
   $('[data-js=phoneMask]').mask('+ 7 (999) 999 99 99');
 });
@@ -299,5 +300,25 @@ function loginForm () {
       },
       2000,
     );
+  });
+}
+
+function yandexMetrika () {
+  const id = 92316235;
+
+  $(document).on('click','[data-ym]', function (e) {
+    const $this = $(this);
+    const name = $this.data('ym');
+    const isLink = /^link/.test(name);
+
+    if (isLink) {
+      e.preventDefault();
+    }
+
+    ym(id, 'reachGoal', name);
+
+    if (isLink) {
+      window.location.replace($this.attr('href'))
+    }
   });
 }
